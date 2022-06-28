@@ -66,11 +66,11 @@ WSGI_APPLICATION = 'jarvis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'defaultdb',
-        'USER':'doadmin',
-        'PASSWORD':'AVNS_J9tRHuEHERlO0yx',
-        'HOST':'my-database-ubuntu-do-user-11742095-0.b.db.ondigitalocean.com',
-        'PORT':'25060',
+        'NAME': 'd4rgaitcf1avm0',
+        'USER':'ukmyfkfrklxced',
+        'PASSWORD':'b340645be2932e58dcbf26765ac2bc24556a6fe411b7e1ac8363f18c3e4d69df',
+        'HOST':'ec2-18-204-142-254.compute-1.amazonaws.com',
+        'PORT':'5432',
 
     }
 }
