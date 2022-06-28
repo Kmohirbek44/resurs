@@ -1,0 +1,38 @@
+{% extends 'learn/generic_base.html' %}
+{% load static %}
+
+
+{% block landing %}
+<div class="row">
+    <div class="col-sm-6">
+        <img src="{% static 'img/students-on-computer.jpg' %}" alt="" srcset="" class="rounded img-fluid">
+    </div>
+    <div class="col-sm-6">
+        <h1><b>Agar siz o'rgana olsangiz, <br> siz hamma narsani qilishingiz mumkin!! </b></h1>
+        <hr class="custom">
+        <p>
+            Biz sizga o'rganish va o'sishni taklif qilgan ushbu bepul imkoniyatdan foydalaning. Siz eng yaxshi bo'ling.
+        </p>
+        <br>
+
+            <div class="col-sm-4">
+                <br>
+                <i class="fas fa-user-graduate"></i>
+                <p>
+                    Resurslar jamlammasi
+                </p>
+                <a href="https://www.youtube.com/channel/UC-E3EzGzVXgTnXKAKY_argA/videos"> <button class="btn btn-outline"> O'rganish</button> </a>
+            </div>
+            <div class="col-sm-4">
+                <br>
+                <i class="fas fa-vials"></i>
+                <p>
+                   Testlar jamlammasi
+                </p>
+                <a href="{% url 'learn:exams' %}"> <button class="btn btn-outline"> Testlar yechish </button> </a>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}
