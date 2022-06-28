@@ -14,7 +14,8 @@ class  IndexView(ListView):
     def get_queryset(self):
         return Subject.objects.all()
 
-
+class  natija(ListView):
+    template_name = 'learn/natija.html'
 class ExamListView(ListView):
     template_name = 'learn/list/exam_list.html'
     context_object_name = 'subject_list'

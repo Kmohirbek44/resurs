@@ -1,11 +1,7 @@
-import os.path
 import os
-import sys
 import dj_database_url
-from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -17,7 +13,7 @@ SECRET_KEY = 'f&8$yovvm1m1!etbl09#jlh1ox+pl37w+ouo-n0qg&)nkg$#m&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -34,7 +30,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoice.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -70,11 +66,11 @@ WSGI_APPLICATION = 'jarvis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd4rgaitcf1avm0',
-        'USER':'ukmyfkfrklxced',
-        'PASSWORD':'b340645be2932e58dcbf26765ac2bc24556a6fe411b7e1ac8363f18c3e4d69df',
-        'HOST':'ec2-18-204-142-254.compute-1.amazonaws.com',
-        'PORT':'5432',
+        'NAME': 'defaultdb',
+        'USER':'doadmin',
+        'PASSWORD':'AVNS_J9tRHuEHERlO0yx',
+        'HOST':'my-database-ubuntu-do-user-11742095-0.b.db.ondigitalocean.com',
+        'PORT':'25060',
 
     }
 }
@@ -121,13 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=(
-    os.path.join(BASE_DIR,'static'),
-)
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
