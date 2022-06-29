@@ -1,14 +1,7 @@
-import os.path
 import os
-import sys
 
-import dj_database_url
-from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +30,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -71,18 +65,16 @@ WSGI_APPLICATION = 'jarvis.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME':'d4tbochucbnq8c',
-        'USER':'wgfhqtmkjadeoq',
-        'PASSWORD':'f826d9ab9bde6d37a67b4fd59669ebaca228ac47f921de3428819d16bea4393f',
-        'HOST':'ec2-18-204-142-254.compute-1.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'darqb78bjts6ae',
+        'USER':'uhakxhfaegvclu',
+        'PASSWORD':'a0f61fc7e7513109841ff9a145b439d966f9f9509b7929ba503633295a8daf0e',
+        'HOST':'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
         'PORT':'5432',
 
     }
 }
 
-db=dj_database_url.config()
-DATABASES['default'].update(db)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -121,13 +113,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=(
-    os.path.join(BASE_DIR,'static'),
-)
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
